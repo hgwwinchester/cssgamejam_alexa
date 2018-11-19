@@ -53,8 +53,9 @@ class AddPlayerHandler(AbstractRequestHandler):
         return is_request_type("addPlayerIntent")(handler_input)
 
     def handle(self, handler_input):
+        logger.info("In AddPlayerHandler")
         handler_input.response_builder.speak("You asked something")
-        return hanler_input.response_builder.response
+        return handler_input.response_builder.response
 
 
 class SessionEndedRequestHandler(AbstractRequestHandler):
