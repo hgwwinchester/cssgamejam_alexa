@@ -21,9 +21,24 @@
                 },
                 {
                   "name" : "AddPlayerIntent",
-                  "slots" : [],
+                  "slots" : [
+                    {
+                      "name" : "DE_FIRST_NAME",
+                      "type" : "AMAZON.DE_FIRST_NAME"
+                    },
+                    {
+                      "name" : "GB_FIRST_NAME",
+                      "type" : "AMAZON.GB_FIRST_NAME"
+                    },
+                    {
+                      "name" : "US_FIRST_NAME",
+                      "type" : "AMAZON.US_FIRST_NAME"
+                    }
+                  ],
                   "samples" : [
-                    "add player"
+                    "new player {DE_FIRST_NAME}",
+                    "new player {GB_FIRST_NAME}",
+                    "new player {US_FIRST_NAME}"
                   ]
                 }
 
