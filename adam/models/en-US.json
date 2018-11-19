@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "greeter",
+            "invocationName": "adam",
             "intents": [
                 {
                     "name": "AMAZON.FallbackIntent",
@@ -19,6 +19,13 @@
                     "name": "AMAZON.StopIntent",
                     "samples": []
                 },
+                {
+                  "name" : "ADAM.AddPlayerIntent",
+                  "slots" : [],
+                  "samples" : [
+                    "add player"
+                  ]
+                }
 
             ],
             "types": []

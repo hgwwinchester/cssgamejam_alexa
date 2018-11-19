@@ -26,7 +26,16 @@ class LaunchRequestHandler(AbstractRequestHandler):
         return is_request_type("LaunchRequest")(handler_input)
 
     def handle(self, handler_input):
-        #todo
+        handler_input.response_builder.speak("DOING THE THING")
+        return handler_input.response_builder.response
+
+
+class AddPlayerHandler(AbstractRequestHandler):
+    def can_handle(self, handler_input):
+        return is_intent_name("ADAM.AddPlayerIntent")(handler_input)
+
+    def handle(self, handler_input):
+        handler_input.response_builder.speak("Adding player...")
         return handler_input.response_builder.response
 
 
