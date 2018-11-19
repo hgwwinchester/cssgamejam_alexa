@@ -32,7 +32,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
 class AddPlayerHandler(AbstractRequestHandler):
     def can_handle(self, handler_input):
-        return is_intent_name("ADAM.AddPlayerIntent")(handler_input)
+        return is_intent_name("AddPlayerIntent")(handler_input)
 
     def handle(self, handler_input):
         handler_input.response_builder.speak("Adding player...")

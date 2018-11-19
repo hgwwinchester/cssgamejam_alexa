@@ -20,7 +20,7 @@
                     "samples": []
                 },
                 {
-                  "name" : "ADAM.AddPlayerIntent",
+                  "name" : "AddPlayerIntent",
                   "slots" : [],
                   "samples" : [
                     "add player"
