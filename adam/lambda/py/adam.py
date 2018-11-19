@@ -36,10 +36,10 @@ class AddPlayerHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
 
-        response_builder = handler_input.response_builder
+        """"response_builder = handler_input.response_builder
         item, is_resolved = util.get_item(
             slots=handler_input.request_envelope.request.intent.slots,
-            states_list=data.STATES_LIST)
+            states_list=data.STATES_LIST)"""
 
         handler_input.response_builder.speak("Adding player...")
         return handler_input.response_builder.response
