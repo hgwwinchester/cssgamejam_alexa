@@ -252,12 +252,9 @@ STATES_LIST = [
         'statehood_year': '1820'
     }]
 
-SKILL_TITLE = "United States Quiz Game"
+SKILL_TITLE = "Adam's secret"
 
-WELCOME_MESSAGE = ("Welcome to the United States Quiz Game!  "
-                   "You can ask me about any of the "
-                   "fifty states and their capitals, or you can ask me to "
-                   "start a quiz.  What would you like to do? ")
+WELCOME_MESSAGE = ("Welcome to Adam's secret drinking game! ")
 
 START_QUIZ_MESSAGE = ("OK.  I will ask you 10 questions about the "
                       "United States. ")
