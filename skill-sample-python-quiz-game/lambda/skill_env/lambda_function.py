@@ -47,6 +47,15 @@ class LaunchRequestHandler(AbstractRequestHandler):
             data.HELP_MESSAGE)
         return handler_input.response_builder.response
 
+class AddPlayerHandler(AbstractRequestHandler):
+    """For adding players"""
+    def can_handle(self, handler_input):
+        return is_request_type("addPlayerIntent")(handler_input)
+
+    def handle(self, handler_input):
+        handler_input.response_builder.speak("You asked something")
+        return hanler_input.response_builder.response
+
 
 class SessionEndedRequestHandler(AbstractRequestHandler):
     """Handler for skill session end."""
