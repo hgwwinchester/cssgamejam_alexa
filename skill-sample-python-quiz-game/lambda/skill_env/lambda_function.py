@@ -54,7 +54,7 @@ class AddPlayerHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         handler_input.response_builder.speak("You asked something")
-        return hanler_input.response_builder.response
+        return handler_input.response_builder.response
 
 
 class SessionEndedRequestHandler(AbstractRequestHandler):
