@@ -3,15 +3,25 @@
 # This is a simple Hello World Alexa Skill, built using
 # the implementation of handler classes approach in skill builder.
 import logging
+import json
 
 from ask_sdk_core.skill_builder import SkillBuilder
-from ask_sdk_core.dispatch_components import AbstractRequestHandler
-from ask_sdk_core.dispatch_components import AbstractExceptionHandler
-from ask_sdk_core.utils import is_request_type, is_intent_name
 from ask_sdk_core.handler_input import HandlerInput
+from ask_sdk_core.serialize import DefaultSerializer
+from ask_sdk_core.dispatch_components import (
+    AbstractRequestHandler, AbstractExceptionHandler,
+    AbstractResponseInterceptor, AbstractRequestInterceptor)
+from ask_sdk_core.utils import is_intent_name, is_request_type
+from ask_sdk_core.response_helper import (
+    get_plain_text_content, get_rich_text_content)
 
-from ask_sdk_model.ui import SimpleCard
-from ask_sdk_model import Response
+from ask_sdk_model.interfaces.display import (
+    ImageInstance, Image, RenderTemplateDirective, ListTemplate1,
+    BackButtonBehavior, ListItem, BodyTemplate2, BodyTemplate1)
+from ask_sdk_model import ui, Response
+
+from alexa import data, util
+
 
 sb = SkillBuilder()
 
@@ -26,7 +36,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
         return is_request_type("LaunchRequest")(handler_input)
 
     def handle(self, handler_input):
-        handler_input.response_builder.speak("DOING THE THING")
+        handler_input.response_builder.speak("DOING THE THING").ask(data.HELP_MESSAGE)
         return handler_input.response_builder.response
 
 
@@ -35,13 +45,9 @@ class AddPlayerHandler(AbstractRequestHandler):
         return is_intent_name("AddPlayerIntent")(handler_input)
 
     def handle(self, handler_input):
-
-        """"response_builder = handler_input.response_builder
-        item, is_resolved = util.get_item(
-            slots=handler_input.request_envelope.request.intent.slots,
-            states_list=data.STATES_LIST)"""
-
-        handler_input.response_builder.speak("Adding player...")
+        attr = handler_input.attributes_manager.session_attributes
+        attr["players"] = 1
+        handler_input.response_builder.speak("Adding player" + str(attr["players"]))
         return handler_input.response_builder.response
 
 
@@ -118,5 +124,5 @@ sb.add_request_handler(SessionEndedRequestHandler())
 sb.add_request_handler(AddPlayerHandler())
 
 sb.add_exception_handler(CatchAllExceptionHandler())
-
-handler = sb.lambda_handler()
+# Expose the lambda handler to register in AWS Lambda.
+lambda_handler = sb.lambda_handler()
